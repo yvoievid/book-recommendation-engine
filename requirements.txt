@@ -1,0 +1,10 @@
+sentence-transformers
+torch
+numpy
+pandas
+tqdm
+streamlit
+datasets
+huggingface_hub
+transformers
+wandb
