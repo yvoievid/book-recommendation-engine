@@ -1,5 +1,5 @@
 from utils import precision_at_k, recall_at_k, mean_average_precision
-from transformers import EvalPrediction
+from transformers.integrations import WandbCallback
 import pandas as pd
 
 class WandbPredictionProgressCallback(WandbCallback):

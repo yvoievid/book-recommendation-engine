@@ -57,15 +57,16 @@ def train():
         loss=loss,        
     )
 
-    evals_callback = WandbPredictionProgressCallback(
-        trainer=trainer,
-        tokenizer=model.tokenizer,
-        val_dataset=val_ds,
-        num_samples=50, 
-        freq=1,
-    )
+    # add only if you sure you want to log 
+    # evals_callback = WandbPredictionProgressCallback(
+    #     trainer=trainer,
+    #     tokenizer=model.tokenizer,
+    #     val_dataset=val_ds,
+    #     num_samples=50, 
+    #     freq=1,
+    # )
     
-    trainer.add_callback(evals_callback)
+    # trainer.add_callback(evals_callback)
 
     trainer.train()
 
