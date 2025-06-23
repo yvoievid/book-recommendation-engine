@@ -36,16 +36,15 @@ def train():
 
     args = SentenceTransformerTrainingArguments(
         output_dir="./models/microsoft_mpnet-base",
-        num_train_epochs=5,
+        num_train_epochs=10,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,
         learning_rate=2e-5,
         warmup_ratio=0.1,
-        logging_steps=100,
+        logging_steps=200,
         save_steps=3000,
-        eval_steps=100,
-        eval_strategy="epoch",
-        metric_for_best_model="map@10", 
+        eval_steps=200,
+        eval_strategy="steps",
         report_to="wandb",
     )
 
@@ -54,21 +53,17 @@ def train():
         model=model,
         train_dataset=train_ds,
         eval_dataset=val_ds,
-        loss=loss,        
+        loss=loss,
+        
     )
 
-    # add only if you sure you want to log 
-    # evals_callback = WandbPredictionProgressCallback(
-    #     trainer=trainer,
-    #     tokenizer=model.tokenizer,
-    #     val_dataset=val_ds,
-    #     num_samples=50, 
-    #     freq=1,
-    # )
-    
-    # trainer.add_callback(evals_callback)
-
-    trainer.train()
+    evals_cb = WandbPredictionProgressCallback(
+        trainer=trainer,
+        sample_dataset=val_ds,
+        num_samples=500,
+        freq=1,
+    )
+    trainer.add_callback(evals_cb)
 
 
 if __name__ == "__main__":
