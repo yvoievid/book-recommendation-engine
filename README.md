@@ -76,7 +76,7 @@ mAP і mAP@K поєднують у собі обидва аспекти, штр�
 
 
 Найкраще тренування:
-https://wandb.ai/urik-voevidka-ukrainian-catholic-university/sentence-transformers/runs/6uktomou?nw=nwuserurikvoevidka
+https://wandb.ai/urik-voevidka-ukrainian-catholic-university/sentence-transformers/runs/udz5qkc0
 
 ## 5. Потенційне покращення: зворотний зв’язок від користувача
 
