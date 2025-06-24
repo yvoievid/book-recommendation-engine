@@ -64,7 +64,7 @@ def train():
         freq=1,
     )
     trainer.add_callback(evals_cb)
-
+    trainer.train()
 
 if __name__ == "__main__":
     load_env()
