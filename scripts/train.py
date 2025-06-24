@@ -25,8 +25,8 @@ def train():
     load_env()
     wandb.login()
     
-    train_ds = load_dataset("csv", data_files="../data/train_val_split/train.csv")["train"]
-    val_ds   = load_dataset("csv", data_files="../data/train_val_split/val.csv")["val"]
+    train_ds = load_dataset("csv", data_files="../data/train_val_split/train.csv")
+    val_ds   = load_dataset("csv", data_files="../data/train_val_split/val.csv")
 
     train_ds = train_ds.filter(not_null)
     val_ds   = val_ds.filter(not_null)
