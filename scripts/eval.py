@@ -30,7 +30,7 @@ def evaluate(
     
     title_emb_norm = title_emb / np.linalg.norm(title_emb, axis=1, keepdims=True)
     cat_emb_norm   = cat_emb   / np.linalg.norm(cat_emb,   axis=1, keepdims=True)
-    logits = np.dot(title_emb_norm, cat_emb_norm.T)  # [n_titles, n_cats]
+    logits = np.dot(title_emb_norm, cat_emb_norm.T) 
     
     cat2idx = {cat: idx for idx, cat in enumerate(all_cats)}
     ground_truth_idx = [
